@@ -41,20 +41,36 @@ Webhook Signing Secret
 
 To retrieve the webhook signing secret, you first need to create a webhook.
 
-To do so, follow this `link to your webhooks <https://dashboard.stripe.com/webhooks>`_, or log into
-your Stripe dashboard and go to :menuselection:`Developers --> Webhooks`. Then, click on **Add
-endpoint** in your **Hosted endpoints**. A form opens, where you'll need to add the following data:
+.. tabs::
 
-- | In the **Endpoint URL**, enter your Odoo database's URL followed by ``/payment/stripe/webhook``.
-  | For example: ``https://yourcompany.odoo.com/payment/stripe/webhook``
-- At the end of the form, you can **Select events** to listen to. Click on it and, in the
-  **Checkout** section, select **checkout.session.completed**.
+   .. group-tab:: Create from Odoo
 
-.. note::
-   It is possible to select other events, but they are currently not processed by Odoo.
+      After filling in the publishable and secret keys, a **generate your webhook** buttons appears.
+      When you click on it, your webhook is configured.
 
-When you click on **Add endpoint**, your Webhook is configured. You can then click on **reveal** to
-display your signing secret.
+   .. group-tab:: Create/update from Stripe
+
+      To create your webhook, follow this `link to your webhooks
+      <https://dashboard.stripe.com/webhooks>`_, or log into your Stripe dashboard and go to
+      :menuselection:`Developers --> Webhooks`. Then, click on **Add endpoint** in your **Hosted
+      endpoints**. A form opens, where you'll need to add the following data:
+
+      - | In the **Endpoint URL**, enter your Odoo database's URL followed by
+        | ``/payment/stripe/webhook``.
+        | For example: ``https://yourcompany.odoo.com/payment/stripe/webhook``
+      - At the end of the form, you can **Select events** to listen to. Click on it. In the
+        **Payment Intent** section, select **payment_intent.succeeded**, and in the **Setup Intent**
+        section, select **setup_intent.succeeded**.
+
+      .. note::
+         It is possible to select other events, but they are currently not processed by Odoo.
+
+      When you click on **Add endpoint**, your Webhook is configured. You can then click on
+      **reveal** to display your signing secret.
+
+      .. note::
+         You can update an existing webhook by clicking on your webhook. Within the dots on the
+         right side of the address, you can then **Update details**
 
 .. _stripe/local-payment-methods:
 
