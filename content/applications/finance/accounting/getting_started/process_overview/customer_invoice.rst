@@ -137,7 +137,7 @@ Receive a partial payment through the bank statement
 
 You can manually enter your bank statements in Odoo, or you can import
 them in from a csv file or from several other predefined formats
-according to your accounting localisation.
+according to your accounting localization.
 
 Create a bank statement from the accounting dashboard with the related
 journal and enter an amount of $100 .
